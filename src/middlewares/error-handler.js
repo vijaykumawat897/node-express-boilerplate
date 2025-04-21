@@ -1,5 +1,5 @@
 const { Messages } = require("@constants/index");
-const { ErrorResponse } = require("@utils/common");
+const { Response } = require("@utils/common");
 const AppError = require("@utils/errors/app-error");
 const { StatusCodes } = require("http-status-codes");
 
@@ -19,8 +19,7 @@ const errorHandler = (err, req, res, next) => {
       );
     }
   }
-  ErrorResponse.error = err;
-  res.status(err.statusCode).json(ErrorResponse);
+  res.status(err.statusCode).json(Response.error(err, err.message));
 };
 
 module.exports = errorHandler;

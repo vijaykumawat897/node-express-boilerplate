@@ -1,10 +1,12 @@
 const Messages = {
   AUTH: {
-    LOGIN_SUCCESS: "Login successful",
-    LOGIN_FAILED: "Invalid credentials",
-    MISSING_CREDENTIALS: "Email and password are required",
-    UNAUTHORIZED: "Unauthorized access",
+    LOGIN_SUCCESS: "Logged in successfully",
+    LOGIN_FAILED: "Login failed",
+    MISSING_LOGIN_CREDENTIALS: "Email and password are required",
+    UNAUTHORIZED: "Unauthorized",
+    INVALID_TOKEN: "Invalid token",
     INCORRECT_EMAIL_PASSWORD: "Incorrect email or password",
+    MISSING_DATA: "Missing required data",
   },
   USER: {
     NOT_FOUND: "User not found",
@@ -25,5 +27,4 @@ const Messages = {
     REQUEST_SUCCESS: "Successfully completed the request",
   },
 };
-
 module.exports = Messages;

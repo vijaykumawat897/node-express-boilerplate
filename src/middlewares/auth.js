@@ -1,4 +1,4 @@
-const { ErrorResponse } = require("@utils/common");
+const { Response } = require("@utils/common");
 const AppError = require("@utils/errors/app-error");
 const { StatusCodes } = require("http-status-codes");
 const { Messages } = require("@constants/index");
@@ -18,9 +18,10 @@ const validateLoginInput = (req, res, next) => {
     error.push(Messages.AUTH.MISSING_CREDENTIALS);
   }
   if (error.length > 0) {
-    ErrorResponse.message = Messages.AUTH.LOGIN_FAILED;
-    ErrorResponse.error = new AppError(error, StatusCodes.BAD_REQUEST);
-    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+    const appError = new AppError(error, StatusCodes.BAD_REQUEST);
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json(Response.error(appError, Messages.AUTH.LOGIN_FAILED));
   }
   req.body.email = email.trim();
   req.body.password = password.trim();
