@@ -1,4 +1,4 @@
-const { Response } = require("@utils/common");
+const { response } = require("@utils/common");
 const AppError = require("@utils/errors/app-error");
 const { StatusCodes } = require("http-status-codes");
 const { Messages } = require("@constants/index");
@@ -21,7 +21,7 @@ const validateLoginInput = (req, res, next) => {
     const appError = new AppError(error, StatusCodes.BAD_REQUEST);
     return res
       .status(StatusCodes.BAD_REQUEST)
-      .json(Response.error(appError, Messages.AUTH.LOGIN_FAILED));
+      .json(response.error(appError, Messages.AUTH.LOGIN_FAILED));
   }
   req.body.email = email.trim();
   req.body.password = password.trim();

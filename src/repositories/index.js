@@ -1,3 +1,3 @@
 module.exports = {
-  AuthRepository: require("./auth.repository"),
+  authRepository: require("./auth.repository"),
 };

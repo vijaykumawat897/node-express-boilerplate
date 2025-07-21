@@ -1,4 +1,4 @@
 module.exports = {
-  ErrorHandler: require("./error-handler"),
-  AuthMiddlewares: require("./auth"),
+  errorHandler: require("./error-handler"),
+  authMiddlewares: require("./auth"),
 };

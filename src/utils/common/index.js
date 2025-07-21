@@ -1,3 +1,3 @@
 module.exports = {
-  Response: require("./response"),
+  response: require("./response"),
 };
